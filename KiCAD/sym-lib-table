@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name YAMAHA)(type Legacy)(uri ${KIPRJMOD}/YAMAHA.lib)(options "")(descr ""))
+  (lib (name DLO555MB)(type Legacy)(uri ${KIPRJMOD}/DLO555MB.lib)(options "")(descr ""))
+)
