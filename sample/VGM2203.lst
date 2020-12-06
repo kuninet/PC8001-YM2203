@@ -1,125 +1,125 @@
- AS V1.42 Beta [Bld 182] - Source File VGM2203.asm - Page 1 - 12/02/20 20:00:29
+ AS V1.42 Beta [Bld 182] - Source File VGM2203.asm - Page 1 - 12/06/20 20:09:18
 
 
        1/       0 :                     ;
-       2/       0 :                     ; YM2203 VGM PLAY FOR KZ80
+       2/       0 :                     ; YM2203 VGM PLAY FOR PC-8001
        3/       0 :                     ;
        4/       0 :                     	CPU	Z80
        5/       0 :                     
        6/       0 : ="Z80"              TARGET:	equ	"Z80"
        7/       0 :                     
-       8/       0 : =4200H              MUSIC	EQU	4200H
-       9/       0 : =40H                OPM_ADDR	EQU	040H
-      10/       0 : =41H                OPM_DATA	EQU	041H
+       8/       0 : =8200H              MUSIC	EQU	8200H
+       9/       0 : =80H                OPM_ADDR	EQU	080H
+      10/       0 : =81H                OPM_DATA	EQU	081H
       11/       0 :                     ;
-      12/    4100 :                     	ORG	4100H
-      13/    4100 :                     ;
-      14/    4100 : C3 03 41            	JP	MAIN	
-      15/    4103 :                     ;
-      16/    4103 :                     MAIN:
-      17/    4103 : CD 07 41            	CALL	MAIN1
-      18/    4106 :                     ;
-      19/    4106 : C9                  	RET	; PGM END
-      20/    4107 :                     ;
-      21/    4107 :                     MAIN1:
-      22/    4107 : 21 00 42            	LD	HL,MUSIC
-      23/    410A :                     LOOP:
-      24/    410A : 7E                  	LD	A,(HL)	; GET COMMAND
-      25/    410B : FE 55               	CP	055H
-      26/    410D : CA 36 41            	JP	Z,PLAY
-      27/    4110 : FE 61               	CP	061H
-      28/    4112 : CA 4B 41            	JP	Z,WAIT1
-      29/    4115 : FE 62               	CP	062H
-      30/    4117 : CA 55 41            	JP	Z,WAIT2
-      31/    411A : FE 63               	CP	063H
-      32/    411C : CA 5E 41            	JP	Z,WAIT3
-      33/    411F : FE 64               	CP	064H
-      34/    4121 : CA 5E 41            	JP	Z,WAIT3
-      35/    4124 : FE 66               	CP	066H
-      36/    4126 : CA 35 41            	JP	Z,END_RTN
-      37/    4129 :                     ;
-      38/    4129 : FE 70               	CP	70H
-      39/    412B : CA 6C 41            	JP	Z,WAIT4
-      40/    412E : C2 67 41            	JP	NZ,CHK_WAIT
-      41/    4131 :                     NEXT:
-      42/    4131 : 23                  	INC	HL
-      43/    4132 : C3 0A 41            	JP	LOOP
-      44/    4135 :                     ;
-      45/    4135 :                     END_RTN:
-      46/    4135 : C9                  	RET	; GOTO MAIN	
-      47/    4136 :                     ;
-      48/    4136 :                     PLAY:
-      49/    4136 : 23                  	INC 	HL
-      50/    4137 : 56                  	LD 	D,(HL)
-      51/    4138 : 23                  	INC 	HL
-      52/    4139 : 5E                  	LD 	E,(HL)
-      53/    413A :                     WRITEOPN:
-      54/    413A :                     ; STATUS CHECK WAIT
-      55/    413A : DB 40               	IN  A,(OPM_ADDR)
-      56/    413C : 07                  	RLCA
-      57/    413D : 38 FB               	JR      C,WRITEOPN
-      58/    413F :                     ; REG OUT
-      59/    413F : 7A                  	LD      A,D
-      60/    4140 : D3 40               	OUT     (OPM_ADDR),A
- AS V1.42 Beta [Bld 182] - Source File VGM2203.asm - Page 2 - 12/02/20 20:00:29
+      12/    8100 :                     	ORG	8100H
+      13/    8100 :                     ;
+      14/    8100 : C3 03 81            	JP	MAIN	
+      15/    8103 :                     ;
+      16/    8103 :                     MAIN:
+      17/    8103 : CD 07 81            	CALL	MAIN1
+      18/    8106 :                     ;
+      19/    8106 : C9                  	RET	; PGM END
+      20/    8107 :                     ;
+      21/    8107 :                     MAIN1:
+      22/    8107 : 21 00 82            	LD	HL,MUSIC
+      23/    810A :                     LOOP:
+      24/    810A : 7E                  	LD	A,(HL)	; GET COMMAND
+      25/    810B : FE 55               	CP	055H
+      26/    810D : CA 36 81            	JP	Z,PLAY
+      27/    8110 : FE 61               	CP	061H
+      28/    8112 : CA 4B 81            	JP	Z,WAIT1
+      29/    8115 : FE 62               	CP	062H
+      30/    8117 : CA 55 81            	JP	Z,WAIT2
+      31/    811A : FE 63               	CP	063H
+      32/    811C : CA 5E 81            	JP	Z,WAIT3
+      33/    811F : FE 64               	CP	064H
+      34/    8121 : CA 5E 81            	JP	Z,WAIT3
+      35/    8124 : FE 66               	CP	066H
+      36/    8126 : CA 35 81            	JP	Z,END_RTN
+      37/    8129 :                     ;
+      38/    8129 : FE 70               	CP	70H
+      39/    812B : CA 6C 81            	JP	Z,WAIT4
+      40/    812E : C2 67 81            	JP	NZ,CHK_WAIT
+      41/    8131 :                     NEXT:
+      42/    8131 : 23                  	INC	HL
+      43/    8132 : C3 0A 81            	JP	LOOP
+      44/    8135 :                     ;
+      45/    8135 :                     END_RTN:
+      46/    8135 : C9                  	RET	; GOTO MAIN	
+      47/    8136 :                     ;
+      48/    8136 :                     PLAY:
+      49/    8136 : 23                  	INC 	HL
+      50/    8137 : 56                  	LD 	D,(HL)
+      51/    8138 : 23                  	INC 	HL
+      52/    8139 : 5E                  	LD 	E,(HL)
+      53/    813A :                     WRITEOPN:
+      54/    813A :                     ; STATUS CHECK WAIT
+      55/    813A : DB 80               	IN  A,(OPM_ADDR)
+      56/    813C : 07                  	RLCA
+      57/    813D : 38 FB               	JR      C,WRITEOPN
+      58/    813F :                     ; REG OUT
+      59/    813F : 7A                  	LD      A,D
+      60/    8140 : D3 80               	OUT     (OPM_ADDR),A
+ AS V1.42 Beta [Bld 182] - Source File VGM2203.asm - Page 2 - 12/06/20 20:09:18
 
 
-      61/    4142 : DD 7E 00            	LD      A,(IX+0)        ;DUMMY
-      62/    4145 :                     ; DATA OUT
-      63/    4145 : 7B                  	LD      A,E
-      64/    4146 : D3 41               	OUT     (OPM_DATA),A
-      65/    4148 : C3 31 41            	JP 	NEXT
-      66/    414B :                     ;
-      67/    414B :                     WAIT1:
-      68/    414B : 23                  	INC	HL
-      69/    414C : 5E                  	LD	E,(HL)
-      70/    414D : 23                  	INC	HL
-      71/    414E : 56                  	LD	D,(HL)
-      72/    414F : CD 78 41            	CALL	WAIT
-      73/    4152 : C3 31 41            	JP NEXT
-      74/    4155 :                     ;
-      75/    4155 :                     WAIT2:
-      76/    4155 : 11 DF 02            	LD	DE,735	
-      77/    4158 : CD 78 41            	CALL	WAIT
-      78/    415B : C3 31 41            	JP 	NEXT
-      79/    415E :                     ;
-      80/    415E :                     WAIT3:
-      81/    415E : 11 72 03            	LD 	DE,882
-      82/    4161 : CD 78 41            	CALL 	WAIT
-      83/    4164 : C3 31 41            	JP 	NEXT
-      84/    4167 :                     ;
-      85/    4167 :                     CHK_WAIT:
-      86/    4167 : FE 80               	CP	80H
-      87/    4169 : D2 31 41            	JP	NC,NEXT
-      88/    416C :                     WAIT4:
-      89/    416C : E6 0F               	AND	0FH
-      90/    416E : 3C                  	INC	A
-      91/    416F : 16 00               	LD 	D,0
-      92/    4171 : 5F                  	LD	E,A
-      93/    4172 : CD 78 41            	CALL	WAIT
-      94/    4175 : C3 31 41            	JP 	NEXT
-      95/    4178 :                     ;  
-      96/    4178 :                     WAIT:	
-      97/    4178 : CD 81 41            	CALL	WAIT1MS	
-      98/    417B : 1B                  	DEC	DE		
-      99/    417C : 7A                  	LD	A,D
-     100/    417D : B3                  	OR	E
-     101/    417E : 20 F8               	JR	NZ,WAIT
-     102/    4180 : C9                  	RET		
-     103/    4181 :                     ; 
-     104/    4181 :                     WAIT1MS:	
-     105/    4181 : 01 01 00            	LD	BC,1		 
-     106/    4184 :                     WAIT1MSLOOP:
-     107/    4184 : 0B                  	DEC	BC
-     108/    4185 : 00                  	NOP		;DUMMY (clock 4)
-     109/    4186 : 79                  	LD	A,C
-     110/    4187 : B0                  	OR	B
-     111/    4188 : 20 FA               	JR	NZ,WAIT1MSLOOP
-     112/    418A : C9                  	RET
-     113/    418B :                     ;
-     114/    418B :                     END
-     115/    418B :                     
- AS V1.42 Beta [Bld 182] - Source File VGM2203.asm - Page 3 - 12/02/20 20:00:29
+      61/    8142 : DD 7E 00            	LD      A,(IX+0)        ;DUMMY
+      62/    8145 :                     ; DATA OUT
+      63/    8145 : 7B                  	LD      A,E
+      64/    8146 : D3 81               	OUT     (OPM_DATA),A
+      65/    8148 : C3 31 81            	JP 	NEXT
+      66/    814B :                     ;
+      67/    814B :                     WAIT1:
+      68/    814B : 23                  	INC	HL
+      69/    814C : 5E                  	LD	E,(HL)
+      70/    814D : 23                  	INC	HL
+      71/    814E : 56                  	LD	D,(HL)
+      72/    814F : CD 78 81            	CALL	WAIT
+      73/    8152 : C3 31 81            	JP NEXT
+      74/    8155 :                     ;
+      75/    8155 :                     WAIT2:
+      76/    8155 : 11 DF 02            	LD	DE,735	
+      77/    8158 : CD 78 81            	CALL	WAIT
+      78/    815B : C3 31 81            	JP 	NEXT
+      79/    815E :                     ;
+      80/    815E :                     WAIT3:
+      81/    815E : 11 72 03            	LD 	DE,882
+      82/    8161 : CD 78 81            	CALL 	WAIT
+      83/    8164 : C3 31 81            	JP 	NEXT
+      84/    8167 :                     ;
+      85/    8167 :                     CHK_WAIT:
+      86/    8167 : FE 80               	CP	80H
+      87/    8169 : D2 31 81            	JP	NC,NEXT
+      88/    816C :                     WAIT4:
+      89/    816C : E6 0F               	AND	0FH
+      90/    816E : 3C                  	INC	A
+      91/    816F : 16 00               	LD 	D,0
+      92/    8171 : 5F                  	LD	E,A
+      93/    8172 : CD 78 81            	CALL	WAIT
+      94/    8175 : C3 31 81            	JP 	NEXT
+      95/    8178 :                     ;  
+      96/    8178 :                     WAIT:	
+      97/    8178 : CD 81 81            	CALL	WAIT1MS	
+      98/    817B : 1B                  	DEC	DE		
+      99/    817C : 7A                  	LD	A,D
+     100/    817D : B3                  	OR	E
+     101/    817E : 20 F8               	JR	NZ,WAIT
+     102/    8180 : C9                  	RET		
+     103/    8181 :                     ; 
+     104/    8181 :                     WAIT1MS:	
+     105/    8181 : 01 01 00            	LD	BC,1		 
+     106/    8184 :                     WAIT1MSLOOP:
+     107/    8184 : 0B                  	DEC	BC
+     108/    8185 : 00                  	NOP		;DUMMY (clock 4)
+     109/    8186 : 79                  	LD	A,C
+     110/    8187 : B0                  	OR	B
+     111/    8188 : 20 FA               	JR	NZ,WAIT1MSLOOP
+     112/    818A : C9                  	RET
+     113/    818B :                     ;
+     114/    818B :                     END
+     115/    818B :                     
+ AS V1.42 Beta [Bld 182] - Source File VGM2203.asm - Page 3 - 12/06/20 20:09:18
 
 
   Symbol Table (* = unused):
@@ -127,34 +127,34 @@
 
 *ARCHITECTURE :                                      "x86_64-unknown-linux" - |
 *BIGENDIAN :                      0 - | *BRANCHEXT :                      0 - |
-*CASESENSITIVE :                  0 - |  CHK_WAIT :                    4167 C |
-*CONSTPI :        3.141592653589793 - | *DATE :                  "12/02/20" - |
-*END :                         418B C |  END_RTN :                     4135 C |
+*CASESENSITIVE :                  0 - |  CHK_WAIT :                    8167 C |
+*CONSTPI :        3.141592653589793 - | *DATE :                  "12/06/20" - |
+*END :                         818B C |  END_RTN :                     8135 C |
 *FALSE :                          0 - | *FULLPMMU :                       1 - |
 *HAS64 :                          1 - | *HASDSP :                         0 - |
 *HASFPU :                         0 - | *HASPMMU :                        0 - |
 *INEXTMODE :                      0 - | *INLWORDMODE :                    0 - |
 *INMAXMODE :                      0 - | *INSRCMODE :                      0 - |
 *INSUPMODE :                      0 - | *LISTON :                         1 - |
- LOOP :                        410A C | *MACEXP :                         7 - |
- MAIN :                        4103 C |  MAIN1 :                       4107 C |
+ LOOP :                        810A C | *MACEXP :                         7 - |
+ MAIN :                        8103 C |  MAIN1 :                       8107 C |
 *MOMCPU :                        80 - | *MOMCPUNAME :                 "Z80" - |
- MUSIC :                       4200 - | *NESTMAX :                      100 - |
- NEXT :                        4131 C |  OPM_ADDR :                      40 - |
- OPM_DATA :                      41 - | *PACKING :                        0 - |
-*PADDING :                        1 - |  PLAY :                        4136 C |
+ MUSIC :                       8200 - | *NESTMAX :                      100 - |
+ NEXT :                        8131 C |  OPM_ADDR :                      80 - |
+ OPM_DATA :                      81 - | *PACKING :                        0 - |
+*PADDING :                        1 - |  PLAY :                        8136 C |
 *RELAXED :                        0 - | *TARGET :                     "Z80" - |
-*TIME :                  "20:00:29" - | *TRUE :                           1 - |
-*VERSION :                     142F - |  WAIT :                        4178 C |
- WAIT1 :                       414B C |  WAIT1MS :                     4181 C |
- WAIT1MSLOOP :                 4184 C |  WAIT2 :                       4155 C |
- WAIT3 :                       415E C |  WAIT4 :                       416C C |
- WRITEOPN :                    413A C | *Z80SYNTAX :                      0 - |
+*TIME :                  "20:09:18" - | *TRUE :                           1 - |
+*VERSION :                     142F - |  WAIT :                        8178 C |
+ WAIT1 :                       814B C |  WAIT1MS :                     8181 C |
+ WAIT1MSLOOP :                 8184 C |  WAIT2 :                       8155 C |
+ WAIT3 :                       815E C |  WAIT4 :                       816C C |
+ WRITEOPN :                    813A C | *Z80SYNTAX :                      0 - |
 
      49 symbols
      31 unused symbols
 
- AS V1.42 Beta [Bld 182] - Source File VGM2203.asm - Page 4 - 12/02/20 20:00:29
+ AS V1.42 Beta [Bld 182] - Source File VGM2203.asm - Page 4 - 12/06/20 20:09:18
 
 
   Code Pages:
