@@ -1,4 +1,6 @@
 (sym_lib_table
   (lib (name YAMAHA)(type Legacy)(uri ${KIPRJMOD}/YAMAHA.lib)(options "")(descr ""))
   (lib (name DLO555MB)(type Legacy)(uri ${KIPRJMOD}/DLO555MB.lib)(options "")(descr ""))
+  (lib (name audio-con)(type Legacy)(uri ${KIPRJMOD}/audio-con.lib)(options "")(descr ""))
+  (lib (name PC8001-YM2203-rescue)(type Legacy)(uri ${KIPRJMOD}/PC8001-YM2203-rescue.lib)(options "")(descr ""))
 )
