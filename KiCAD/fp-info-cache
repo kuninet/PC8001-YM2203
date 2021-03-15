@@ -1,4 +1,4 @@
-16365864600157580
+16364266529851994
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -51610,13 +51610,6 @@ DIL DIP PDIP 2.54mm 7.62mm 300mil
 0
 4
 4
-PCBEdge
-PCB_Edge_Conn_2x25_P2.54mm_Vertical
-PCB Edge Connector, 2x25, 2.54mm pitch
-PCB Edger THT 2x25 2.54mm double row
-0
-50
-50
 Package_BGA
 Analog_BGA-28_4.0x6.25mm_Layout4x7_P0.8mm_Ball0.45mm_Pad0.4
 Analog BGA-28 4.0mm x 6.25mm package, pitch 0.4mm pad, based on https://www.analog.com/media/en/technical-documentation/data-sheets/8063fa.pdf

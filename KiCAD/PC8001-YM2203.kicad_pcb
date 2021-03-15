@@ -2,7 +2,7 @@
 
   (general
     (thickness 1.6)
-    (drawings 22)
+    (drawings 23)
     (tracks 599)
     (zones 0)
     (modules 32)
@@ -2555,6 +2555,9 @@
     )
   )
 
+  (gr_text "KUNI-NET 2021" (at 54 125.5) (layer F.SilkS)
+    (effects (font (size 1.5 1.5) (thickness 0.2)))
+  )
   (gr_text 3.579545MHz (at 132.5 79 90) (layer F.SilkS)
     (effects (font (size 1 1) (thickness 0.15)))
   )
